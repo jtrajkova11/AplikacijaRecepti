@@ -12,8 +12,9 @@ Projekt je sestavljen iz frontenda, backenda in podatkovne baze PostgreSQL.
 
 ### Frontend
 - **React 19.3.1** – izdelava uporabniškega vmesnika.
+- **React DOM 19.3.1** – prikaz React komponent v brskalniku.
 - **JavaScript** – programski jezik.
-- **Vite 8.3.4** – razvoj in zagon aplikacije.
+- **Vite 8.3.5** – razvoj in zagon aplikacije.
 - **CSS** – oblikovanje uporabniškega vmesnika.
 - **ESLint 10.13.0** – preverjanje kode.
 
