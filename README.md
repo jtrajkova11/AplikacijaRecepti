@@ -58,6 +58,7 @@ Mapa `frontend` vsebuje uporabniški del aplikacije, izdelan s knjižnico React.
 - `App.css` in `index.css` – vsebujeta stile aplikacije.
 - `main.jsx` – vstopna točka React aplikacije.
 - `package.json` – vsebuje odvisnosti in ukaze za zagon.
+- `package-lock.json` – vsebuje natančne različice nameščenih paketov in njihove odvisnosti.
 - `vite.config.js` – vsebuje konfiguracijo Vite.
 - `eslint.config.js` – vsebuje konfiguracijo orodja ESLint.
 
