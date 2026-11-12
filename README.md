@@ -166,27 +166,28 @@ Namesto `your_postgresql_password` vnesemo svoje geslo za PostgreSQL.
 
 ### 4.4 Zagon backenda
 
-V prvem terminalu odpremo mapo backend:
+V prvem terminalu odpremo mapo `backend`:
 
 ```powershell
 cd backend
 ```
 
-Nastavimo okoljsko spremenljivko:
+Nastavimo okoljsko spremenljivko `DB_PASSWORD` in zaženemo backend:
 
 ```powershell
 $env:DB_PASSWORD="your_postgresql_password"
-```
-
-Zaženemo backend aplikacijo:
-
-```powershell
 .\mvnw.cmd spring-boot:run
 ```
 
-Backend deluje na naslovu:
+Backend se zažene na naslovu `http://localhost:8080`.
 
-http://localhost:8080
+REST API je dostopen na naslovu:
+
+[http://localhost:8080/api/recipes](http://localhost:8080/api/recipes)
+
+Dokumentacija API-ja (Swagger UI):
+
+[http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
 ### 4.5 Zagon frontenda
 
