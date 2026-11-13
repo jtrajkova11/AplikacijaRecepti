@@ -300,9 +300,9 @@ Izvorna koda projekta je shranjena v GitHub repozitoriju:
 
 [https://github.com/jtrajkova11/AplikacijaRecepti](https://github.com/jtrajkova11/AplikacijaRecepti)
 
-Pri razvoju projekta uporabljamo Git in GitHub. Vsak član ekipe dela na svoji veji (branch), da se spremembe posameznih razvijalcev ne prepisujejo med seboj.
+Pri razvoju projekta uporabljamo Git in GitHub. Vsak član ekipe razvija in shranjuje svoje spremembe na svoji veji (branch), s čimer preprečimo neposredno prepisovanje kode drugih članov. Ko je posamezna naloga zaključena, razvijalec ustvari Pull Request, prek katerega se spremembe pregledajo in združijo v glavno vejo `main`.
 
-### 8.1 Priprava okolja
+### 8.1 Priprava razvojnega okolja
 
 Najprej prenesemo projekt iz GitHub repozitorija:
 
@@ -323,15 +323,40 @@ git switch main
 git pull origin main
 ```
 
-### 8.2 Delo na lastni veji
+### 8.2 Ustvarjanje in uporaba lastne veje
 
-Vsak član ekipe uporablja svojo vejo:
+Vsak član ekipe za svoje delo uporablja svojo vejo:
 
 - Jovana: `feature/jovana`
 - Niki: `feature/niki`
 - Anđela: `feature/andjela`
 
-Pred začetkom dela preklopimo na svojo vejo in prenesemo njene najnovejše spremembe.
+**Ustvarjanje nove veje**
+
+Če član svojo vejo ustvarja prvič, najprej posodobi glavno vejo `main`:
+
+```bash
+git switch main
+git pull origin main
+```
+
+Nato ustvari svojo vejo. Primer za Jovanino vejo:
+
+```bash
+git switch -c feature/jovana
+```
+
+Novo vejo pošlje na GitHub in nastavi povezavo z oddaljeno vejo:
+
+```bash
+git push -u origin feature/jovana
+```
+
+Drugi člani uporabijo svoje ime veje (`feature/niki` ali `feature/andjela`).
+
+**Uporaba že obstoječe veje**
+
+Če veja že obstaja na GitHubu, je ne ustvarjamo ponovno. Preklopimo nanjo in prenesemo najnovejše spremembe.
 
 Primer za Jovanino vejo:
 
@@ -340,11 +365,19 @@ git switch feature/jovana
 git pull origin feature/jovana
 ```
 
-Drugi člani uporabijo ime svoje veje (`feature/niki` ali `feature/andjela`).
+Drugi člani uporabijo ime svoje veje.
+
+Pred začetkom dela vedno preverimo, ali smo na pravilni veji:
+
+```bash
+git branch
+```
+
+Zvezdica (*) označuje trenutno aktivno vejo.
 
 ### 8.3 Shranjevanje in pošiljanje sprememb
 
-Po končanem delu preverimo spremenjene datoteke:
+Po končanem delu najprej preverimo stanje projekta:
 
 ```bash
 git status
@@ -362,13 +395,15 @@ Ustvarimo commit z jasnim opisnim sporočilom:
 git commit -m "Update recipe functionality"
 ```
 
-Spremembe pošljemo na GitHub:
+Spremembe pošljemo na svojo vejo na GitHubu.
+
+Primer za Jovanino vejo:
 
 ```bash
 git push origin feature/jovana
 ```
 
-Vsak član uporabi ime svoje veje. Pri naslednjih posodobitvah iste veje uporabimo:
+Drugi člani uporabijo ime svoje veje. Pri naslednjih posodobitvah iste veje lahko uporabimo tudi:
 
 ```bash
 git push
@@ -376,43 +411,50 @@ git push
 
 ### 8.4 Pull Request in združevanje sprememb
 
-Ko je delo na lastni veji končano:
+Ko je delo na lastni veji zaključeno, spremembe predlagamo za združitev v glavno vejo `main` prek Pull Requesta.
+
+Postopek:
 
 1. Na GitHubu odpremo repozitorij projekta.
-2. Ustvarimo nov Pull Request.
+2. Izberemo možnost za ustvarjanje novega Pull Requesta.
 3. Kot ciljno vejo (base) izberemo `main`.
-4. Kot izvorno vejo (compare) izberemo svojo vejo.
-5. V opisu na kratko predstavimo opravljene spremembe.
-6. Člani ekipe pregledajo spremembe.
-7. Po pregledu in odobritvi Pull Request združimo (merge) v vejo `main`.
+4. Kot izvorno vejo (compare) izberemo svojo vejo, na primer `feature/jovana`.
+5. Vpišemo naslov in kratek opis opravljenih sprememb.
+6. Člani ekipe pregledajo spremembe in po potrebi predlagajo popravke.
+7. Ko so spremembe pregledane, Pull Request združimo (merge) v vejo `main`.
 
-Po združitvi sprememb posodobimo svojo lokalno vejo `main`:
+Pred združitvijo je treba preveriti, ali so spremembe združljive z obstoječo kodo. Če pride do konflikta, ga je treba razrešiti, preden zaključimo združitev.
+
+**Posodobitev lastne veje po združitvi Pull Requesta**
+
+Ko so spremembe združene v `main`, posodobimo lokalno glavno vejo:
 
 ```bash
 git switch main
 git pull origin main
 ```
 
-Če nadaljujemo z delom na svoji veji, jo posodobimo z najnovejšimi spremembami iz veje `main`:
+Nato se vrnemo na svojo delovno vejo in vanjo vključimo najnovejše spremembe iz `main`:
 
 ```bash
 git switch feature/jovana
 git merge main
 ```
 
-Drugi člani namesto `feature/jovana` uporabijo ime svoje veje.
+Drugi člani namesto `feature/jovana` uporabijo ime svoje veje. Če pri združevanju pride do konflikta, ga razrešimo in nato shranimo ter pošljemo spremembe na GitHub.
 
 ### 8.5 Pravila sodelovanja
 
-- Vsak član ekipe uporablja svoj GitHub račun in svojo vejo.
+- Vsak član ekipe uporablja svoj GitHub račun in svojo delovno vejo.
+- Vsak član spremembe najprej shrani na svojo vejo.
 - Spremembe pošiljamo na GitHub v manjših, logično zaključenih commitih.
 - Sporočila commitov naj jasno opisujejo opravljeno delo.
 - Sprememb ne pošiljamo neposredno v vejo `main`.
 - Pred združitvijo pregledamo spremembe v Pull Requestu.
 - Pred začetkom nove naloge posodobimo lokalno vejo `main` in svojo delovno vejo.
 - Gesel, ključev in drugih občutljivih podatkov ne dodajamo v Git repozitorij.
-- Vsak član ekipe je odgovoren za preverjanje delovanja svoje spremembe.
-
+- Vsak član ekipe je odgovoren za preverjanje delovanja svojih sprememb.
+- 
 ## 9. Standardi kodiranja
 
 Pri pisanju kode upoštevamo enotna pravila, da je projekt pregleden, razumljiv in enostaven za vzdrževanje.
