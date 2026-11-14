@@ -454,7 +454,7 @@ Drugi člani namesto `feature/jovana` uporabijo ime svoje veje. Če pri združev
 - Pred začetkom nove naloge posodobimo lokalno vejo `main` in svojo delovno vejo.
 - Gesel, ključev in drugih občutljivih podatkov ne dodajamo v Git repozitorij.
 - Vsak član ekipe je odgovoren za preverjanje delovanja svojih sprememb.
-- 
+
 ## 9. Standardi kodiranja
 
 Pri pisanju kode upoštevamo enotna pravila, da je projekt pregleden, razumljiv in enostaven za vzdrževanje.
