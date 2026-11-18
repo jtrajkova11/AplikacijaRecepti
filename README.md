@@ -485,3 +485,9 @@ Pri pisanju kode upoštevamo enotna pravila, da je projekt pregleden, razumljiv 
 - Izogibamo se nepotrebnemu podvajanju kode.
 - Spremembe preverimo pred pošiljanjem na GitHub.
 - Gesel in drugih občutljivih podatkov ne zapisujemo neposredno v izvorno kodo ali javni GitHub repozitorij.
+
+### 10. Uporabniške zgodbe (vaja 6)
+ 
+Uporabniške zgodbe, kriteriji sprejemljivosti in podrobnosti implementacije za prijavo, vloge in shranjevanje receptov:
+[docs/user-stories.md](docs/user-stories.md)
+ 
