@@ -76,7 +76,7 @@ Nova funkcionalnost: **prijava uporabnikov, vloge (gost / uporabnik / administra
 
 **Kot** gost želim **pregledovati, iskati in razvrščati recepte brez prijave**, **da** hitro najdem recept brez ustvarjanja računa.
 
-**Odgovorna oseba:** Niki Polanec
+**Odgovorna oseba:** Anđela Pavlović
 
 ### Kriteriji sprejemljivosti
 
@@ -112,9 +112,9 @@ Nova funkcionalnost: **prijava uporabnikov, vloge (gost / uporabnik / administra
 - Frontend skrije omejene kontrole glede na stanje prijave, backend pa pravice preverja neodvisno.
 
 ### Naloge (podnaloge)
-1. **Backend: iskanje in razvrščanje z validacijo parametrov** – Niki Polanec – razširitev `GET /api/recipes`.
-2. **Frontend: stanje "Ni najdenih receptov" in skrivanje kontrol za goste** – Niki Polanec.
-3. **Preusmeritev gosta z zaščitenih strani** – Niki Polanec.
+1. **Backend: iskanje in razvrščanje z validacijo parametrov** – Anđela Pavlović – razširitev `GET /api/recipes`.
+2. **Frontend: stanje "Ni najdenih receptov" in skrivanje kontrol za goste** – Anđela Pavlović.
+3. **Preusmeritev gosta z zaščitenih strani** – Anđela Pavlović.
 
 ---
 
@@ -122,7 +122,7 @@ Nova funkcionalnost: **prijava uporabnikov, vloge (gost / uporabnik / administra
 
 **Kot** prijavljen uporabnik želim **objavljati nove recepte ter urejati in brisati svoje**, **da** lahko delim in vzdržujem svojo zbirko.
 
-**Odgovorna oseba:** Niki Polanec
+**Odgovorna oseba:** Anđela Pavlović
 
 ### Kriteriji sprejemljivosti
 
@@ -159,9 +159,9 @@ Nova funkcionalnost: **prijava uporabnikov, vloge (gost / uporabnik / administra
 - Obstoječi recepti brez avtorja (`authorId = null`) lahko urejajo in brišejo samo administratorji.
 
 ### Naloge (podnaloge)
-1. **Backend: ustvarjanje, urejanje, brisanje s preverjanjem lastništva** – Niki Polanec.
-2. **Frontend: obrazec in kontrole za lastne recepte** – Niki Polanec – dialog za potrditev brisanja.
-3. **Testi pravil lastništva** – Niki Polanec – AC-03.1 do AC-03.5.
+1. **Backend: ustvarjanje, urejanje, brisanje s preverjanjem lastništva** – Anđela Pavlović
+2. **Frontend: obrazec in kontrole za lastne recepte** – Anđela Pavlović – dialog za potrditev brisanja.
+3. **Testi pravil lastništva** – Anđela Pavlović – AC-03.1 do AC-03.5.
 
 ---
 
@@ -169,7 +169,7 @@ Nova funkcionalnost: **prijava uporabnikov, vloge (gost / uporabnik / administra
 
 **Kot** prijavljen uporabnik želim **med brskanjem shranjevati recepte**, **da** jih pozneje zlahka najdem.
 
-**Odgovorna oseba:** Anđela Pavlović
+**Odgovorna oseba:** Niki Polanec
 
 ### Kriteriji sprejemljivosti
 
@@ -204,9 +204,9 @@ Nova funkcionalnost: **prijava uporabnikov, vloge (gost / uporabnik / administra
 - Statusi: `401` ni prijavljen, `404` recept ne obstaja.
 
 ### Naloge (podnaloge)
-1. **Backend: shranjevanje in končne točke** – Anđela Pavlović – entiteta `SavedRecipe`, repozitorij, controller.
-2. **Frontend: gumb za shranjevanje in stran "Shranjeni recepti"** – Anđela Pavlović.
-3. **Testi shranjevanja** – Anđela Pavlović – AC-04.1 do AC-04.5.
+1. **Backend: shranjevanje in končne točke** – Niki Polanec– entiteta `SavedRecipe`, repozitorij, controller.
+2. **Frontend: gumb za shranjevanje in stran "Shranjeni recepti"** – Niki Polanec.
+3. **Testi shranjevanja** – Niki Polanec – AC-04.1 do AC-04.5.
 
 ---
 
@@ -255,13 +255,3 @@ Nova funkcionalnost: **prijava uporabnikov, vloge (gost / uporabnik / administra
 3. **Testi skrbniških pravic** – Jovana Trajkova – AC-05.1 do AC-05.5.
 
 ---
-
-## Preverjanje po implementaciji
-
-| Zgodba | Kriteriji | Rezultat | Preveril |
-|--------|-----------|----------|----------|
-| US-01 | AC-01.1 – 01.5 | ☐ | |
-| US-02 | AC-02.1 – 02.5 | ☐ | |
-| US-03 | AC-03.1 – 03.5 | ☐ | |
-| US-04 | AC-04.1 – 04.5 | ☐ | |
-| US-05 | AC-05.1 – 05.5 | ☐ | |
