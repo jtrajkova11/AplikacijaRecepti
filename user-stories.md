@@ -15,9 +15,9 @@ Nova funkcionalnost: **prijava uporabnikov, vloge (gost / uporabnik / administra
 | ID | Zgodba | Odgovorna oseba |
 |----|--------|-----------------|
 | US-01 | Registracija, prijava in odjava | Jovana Trajkova |
-| US-02 | Pregled, iskanje in razvrščanje receptov kot gost | Niki Polanec |
-| US-03 | Objava, urejanje in brisanje lastnih receptov | Niki Polanec |
-| US-04 | Shranjevanje receptov | Anđela Pavlović |
+| US-02 | Pregled, iskanje in razvrščanje receptov kot gost | Anđela Pavlović |
+| US-03 | Objava, urejanje in brisanje lastnih receptov | Anđela Pavlović |
+| US-04 | Shranjevanje receptov | Niki Polanec |
 | US-05 | Skrbniško moderiranje (brisanje receptov in uporabnikov) | Jovana Trajkova |
 
 > Pomoč pri INVEST: zgodbe so neodvisne toliko, kolikor to dovoljuje tema (US-01 je osnova za US-03 do US-05), vsaka je vrednostna za uporabnika, dovolj majhna za en sprint, in preverljiva prek kriterijev sprejemljivosti.
