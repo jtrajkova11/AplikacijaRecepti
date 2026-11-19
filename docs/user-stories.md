@@ -20,8 +20,6 @@ Nova funkcionalnost: **prijava uporabnikov, vloge (gost / uporabnik / administra
 | US-04 | Shranjevanje receptov | Niki Polanec |
 | US-05 | Skrbniško moderiranje (brisanje receptov in uporabnikov) | Jovana Trajkova |
 
-> Pomoč pri INVEST: zgodbe so neodvisne toliko, kolikor to dovoljuje tema (US-01 je osnova za US-03 do US-05), vsaka je vrednostna za uporabnika, dovolj majhna za en sprint, in preverljiva prek kriterijev sprejemljivosti.
-
 ---
 
 ## US-01 – Registracija, prijava in odjava
