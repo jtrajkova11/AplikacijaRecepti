@@ -151,10 +151,12 @@ AplikacijaRecepti/
 │   └── vite.config.js
 │
 ├── docs/
-│   └── vaja5/
-│       ├── diagram-primera-uporabe.png
-│       └── podrobni-opisi-neimplementiranih-funkcionalnosti.md
-│
+│   ├── vaja5/
+│   │   ├── diagram-primera-uporabe.png
+│   │   └── podrobni-opisi-neimplementiranih-funkcionalnosti.md
+│   ├── vaja7/
+│   │   └── class-diagram.png
+│   └── user-stories.md
 ├── .gitignore
 └── README.md
 ```
@@ -189,12 +191,21 @@ Mapa `frontend` vsebuje uporabniški vmesnik, razvit s knjižnico React.
 
 ### 6.3 Dokumentacija
 
-Mapa `docs/vaja5` vsebuje dokumentacijo, pripravljeno za peto vajo:
+Mapa docs vsebuje dokumentacijo, pripravljeno za posamezne vaje.
 
-- `diagram-primera-uporabe.png` – diagram primerov uporabe.
-- `podrobni-opisi-neimplementiranih-funkcionalnosti.md` – podrobni opisi še neimplementiranih primerov uporabe.
+Mapa docs/vaja5 vsebuje dokumentacijo za peto vajo:
 
-V korenski mapi se nahajata tudi `.gitignore`, ki določa datoteke in mape, ki jih Git ne vključuje v repozitorij, in `README.md` z dokumentacijo projekta.
+diagram-primera-uporabe.png – diagram primerov uporabe.
+
+podrobni-opisi-neimplementiranih-funkcionalnosti.md – podrobni opisi še neimplementiranih primerov uporabe.
+
+Mapa docs/vaja7 vsebuje dokumentacijo za sedmo vajo:
+
+class-diagram.png – UML diagram razredov aplikacije AplikacijaRecepti.
+
+Datoteka user-stories.md vsebuje uporabniške zgodbe, kriterije sprejemljivosti in podrobnosti implementacije funkcionalnosti, pripravljenih za šesto vajo.
+
+V korenski mapi se nahajata tudi .gitignore, ki določa datoteke in mape, ki jih Git ne vključuje v repozitorij, in README.md z dokumentacijo projekta.
 
 ## 7. Navodila za nameščanje in zagon
 
