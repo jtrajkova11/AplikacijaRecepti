@@ -506,8 +506,6 @@ Uporabniške zgodbe, kriteriji sprejemljivosti in podrobnosti implementacije za 
 
 ### UML diagram razredov
 
-### UML diagram razredov
-
 UML diagram razredov prikazuje načrtovano strukturo aplikacije AplikacijaRecepti. Prikazuje glavne razrede, njihove atribute, metode in povezave med njimi. Diagram zajema trenutno implementirane in načrtovane funkcionalnosti aplikacije, ki so bile določene v diagramu primerov uporabe (DPU).
 ![UML diagram razredov – AplikacijaRecepti](docs/vaja7/class-diagram.png)
 
