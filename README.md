@@ -151,10 +151,12 @@ AplikacijaRecepti/
 │   └── vite.config.js
 │
 ├── docs/
-│   └── vaja5/
-│       ├── diagram-primera-uporabe.png
-│       └── podrobni-opisi-neimplementiranih-funkcionalnosti.md
-│
+│   ├── vaja5/
+│   │   ├── diagram-primera-uporabe.png
+│   │   └── podrobni-opisi-neimplementiranih-funkcionalnosti.md
+│   ├── vaja7/
+│   │   └── class-diagram.png
+│   └── user-stories.md
 ├── .gitignore
 └── README.md
 ```
@@ -189,12 +191,21 @@ Mapa `frontend` vsebuje uporabniški vmesnik, razvit s knjižnico React.
 
 ### 6.3 Dokumentacija
 
-Mapa `docs/vaja5` vsebuje dokumentacijo, pripravljeno za peto vajo:
+Mapa docs vsebuje dokumentacijo, pripravljeno za posamezne vaje.
 
-- `diagram-primera-uporabe.png` – diagram primerov uporabe.
-- `podrobni-opisi-neimplementiranih-funkcionalnosti.md` – podrobni opisi še neimplementiranih primerov uporabe.
+Mapa docs/vaja5 vsebuje dokumentacijo za peto vajo:
 
-V korenski mapi se nahajata tudi `.gitignore`, ki določa datoteke in mape, ki jih Git ne vključuje v repozitorij, in `README.md` z dokumentacijo projekta.
+diagram-primera-uporabe.png – diagram primerov uporabe.
+
+podrobni-opisi-neimplementiranih-funkcionalnosti.md – podrobni opisi še neimplementiranih primerov uporabe.
+
+Mapa docs/vaja7 vsebuje dokumentacijo za sedmo vajo:
+
+class-diagram.png – UML diagram razredov aplikacije AplikacijaRecepti.
+
+Datoteka user-stories.md vsebuje uporabniške zgodbe, kriterije sprejemljivosti in podrobnosti implementacije funkcionalnosti, pripravljenih za šesto vajo.
+
+V korenski mapi se nahajata tudi .gitignore, ki določa datoteke in mape, ki jih Git ne vključuje v repozitorij, in README.md z dokumentacijo projekta.
 
 ## 7. Navodila za nameščanje in zagon
 
@@ -486,8 +497,123 @@ Pri pisanju kode upoštevamo enotna pravila, da je projekt pregleden, razumljiv 
 - Spremembe preverimo pred pošiljanjem na GitHub.
 - Gesel in drugih občutljivih podatkov ne zapisujemo neposredno v izvorno kodo ali javni GitHub repozitorij.
 
-### 10. Uporabniške zgodbe (vaja 6)
+## 10. Uporabniške zgodbe (vaja 6)
  
 Uporabniške zgodbe, kriteriji sprejemljivosti in podrobnosti implementacije za prijavo, vloge in shranjevanje receptov:
 [docs/user-stories.md](docs/user-stories.md)
- 
+
+## 11. Razredni diagram (vaja 7)
+
+### UML diagram razredov
+
+### UML diagram razredov
+
+UML diagram razredov prikazuje načrtovano strukturo aplikacije AplikacijaRecepti. Prikazuje glavne razrede, njihove atribute, metode in povezave med njimi. Diagram zajema trenutno implementirane in načrtovane funkcionalnosti aplikacije, ki so bile določene v diagramu primerov uporabe (DPU).
+![UML diagram razredov – AplikacijaRecepti](docs/vaja7/class-diagram.png)
+
+### Opis razredov in njihovih metod
+
+**1. AppUser**
+
+Razred predstavlja uporabnika aplikacije. Vsebuje njegov ID, uporabniško ime in zgoščeno geslo. Vsak uporabnik ima določeno uporabniško vlogo.
+
+Ključni metodi:
+- `getUsername()` – vrne uporabniško ime.
+- `getRole()` – vrne vlogo uporabnika.
+
+**2. UserRole**
+
+Razred predstavlja uporabniške vloge v aplikaciji. Aplikacija podpira dve vlogi: `USER` in `ADMIN`. Vloga določa, katere funkcionalnosti so uporabniku na voljo.
+
+**3. AuthToken**
+
+Razred predstavlja avtentikacijski žeton, ki se uporablja za preverjanje prijavljenega uporabnika.
+
+Ključni metodi:
+- `isValid()` – preveri, ali je žeton veljaven.
+- `invalidate()` – razveljavi žeton ob odjavi uporabnika.
+
+**4. AuthService**
+
+Razred skrbi za izvajanje avtentikacije uporabnikov.
+
+Ključne metode:
+- `register(username, password)` – registrira novega uporabnika.
+- `login(username, password)` – preveri podatke uporabnika in izvede prijavo.
+- `logout(token)` – izvede odjavo uporabnika in razveljavi njegov žeton.
+
+**5. AuthController**
+
+Razred obdeluje zahteve, povezane z registracijo, prijavo in odjavo uporabnikov.
+
+Ključne metode:
+- `register(username, password)` – obravnava zahtevo za registracijo.
+- `login(username, password)` – obravnava zahtevo za prijavo.
+- `logout(token)` – obravnava zahtevo za odjavo.
+- `getCurrentUser(token)` – pridobi trenutno prijavljenega uporabnika.
+
+**6. Recipe**
+
+Razred predstavlja recept v aplikaciji. Vsebuje ID, ime, opis, sestavine in čas priprave.
+
+Ključne metode:
+- `getIme()` – vrne ime recepta.
+- `setIme(ime)` – spremeni ime recepta.
+- `getOpis()` – vrne opis recepta.
+- `setOpis(opis)` – spremeni opis recepta.
+- `getCasPriprave()` – vrne čas priprave recepta.
+
+**7. RecipeController**
+
+Razred obdeluje zahteve, povezane z upravljanjem receptov.
+
+Ključne metode:
+- `getAllRecipes()` – pridobi vse recepte.
+- `searchRecipes(ime)` – poišče recepte glede na ime.
+- `sortRecipes(sortBy, direction)` – razvrsti recepte glede na izbrano merilo in smer razvrščanja.
+- `createRecipe(recipe)` – doda nov recept.
+- `updateRecipe(id, recipe)` – posodobi obstoječi recept.
+- `deleteRecipe(id)` – izbriše recept.
+
+**8. RecipeRepository**
+
+Vmesnik omogoča dostop do podatkov o receptih in njihovo upravljanje.
+
+Ključne metode:
+- `findAll()` – pridobi vse recepte.
+- `findById(id)` – poišče recept po ID-ju.
+- `save(recipe)` – shrani nov ali posodobljen recept.
+- `deleteById(id)` – izbriše recept po ID-ju.
+- `findByImeContainingIgnoreCase(ime)` – poišče recepte glede na ime brez razlikovanja med velikimi in malimi črkami.
+
+**9. SavedRecipe**
+
+Razred predstavlja povezavo med uporabnikom in receptom, ki ga je uporabnik shranil med priljubljene recepte.
+
+Ključni metodi:
+- `save()` – shrani recept med priljubljene.
+- `remove()` – odstrani recept iz seznama priljubljenih receptov.
+
+**10. SavedRecipeRepository**
+
+Vmesnik omogoča upravljanje shranjenih receptov posameznih uporabnikov.
+
+Ključne metode:
+- `save(savedRecipe)` – shrani recept med priljubljene.
+- `delete(userId, recipeId)` – odstrani shranjeni recept.
+- `findByUser(userId)` – pridobi vse shranjene recepte določenega uporabnika.
+
+**11. AdminController**
+
+Razred obdeluje zahteve administratorja in omogoča upravljanje uporabnikov ter receptov.
+
+Ključne metode:
+- `getAllUsers()` – pridobi seznam vseh uporabnikov.
+- `deleteUser(id)` – izbriše uporabnika.
+- `deleteAnyRecipe(id)` – omogoča administratorju brisanje katerega koli recepta.
+
+### Povezave med razredi
+
+Diagram prikazuje povezave med uporabniki, njihovimi vlogami, recepti, avtentikacijskimi žetoni in shranjenimi recepti. En uporabnik ima eno uporabniško vlogo in lahko ustvari več receptov, uporablja več avtentikacijskih žetonov ter shrani več priljubljenih receptov. Recept je lahko shranjen med priljubljene pri več uporabnikih.
+
+Kontrolerji sodelujejo s storitvenimi razredi in repozitoriji pri izvajanju posameznih funkcionalnosti. Repozitoriji omogočajo dostop do podatkov in njihovo shranjevanje v podatkovno bazo.
